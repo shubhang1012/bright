@@ -12,7 +12,7 @@ body {
 }
 
 .navbar-box {
-    display: flexbox;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -26,7 +26,6 @@ body {
     justify-content: space-between;
     width: 100%;
     padding: 10px 20px;
-    max-width: 100%;
     border-radius: 10px;
     border: 2px solid rgba(170, 168, 168, 0.3); /* Subtle border */
     align-items: center;
@@ -53,7 +52,7 @@ body {
     white-space: nowrap;
 }
 
-/* Responsive styles */
+/* Responsive styles*/
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -80,17 +79,27 @@ body {
 }
 
 @media (max-width: 480px) {
-    .navbar-right {
-        flex-direction: column;
+    .navbar {
+        flex-direction: row; /* Keep the navbar in a single row */
+        justify-content: space-between; /* Align left and right sections */
         align-items: center;
-        gap: 5px;
+    }
+
+    .navbar-left {
+        flex: 1; /* Allow it to take its proportional space */
+    }
+
+    .navbar-right {
+        flex: 1; /* Ensure it stays on the same line as the left section */
+        display: flex;
+        justify-content: flex-end; /* Align right content to the end */
+        gap: 5px; /* Adjust spacing for smaller screens */
     }
 
     .download-text {
-        font-size: 10px;
+        display: none; /* Hide text for smaller screens */
     }
 }
-
   
 .hero-text ul li::before {
     font-size: 1.2rem;
@@ -895,7 +904,6 @@ header {
     align-items: center;
     padding: 10px 20px;
     width: auto;
-    margin: 1rem 25rem;
     height: 10%;
 }
 
